@@ -30,6 +30,16 @@
             // by different routes and will append them to an anchor element. The
             // value of input elements can be a string, an html element or a function
             const _appendComponent = (elementName, elementFunction, opts = {}) => {
+                if (opts.clearAnchor) {
+                    // The clearAnchor option is used if the entire contents of innerHtml
+                    // need to be replaced
+                    Array.from(container.children).forEach(child => {
+                        if (child != document.currentScript){
+                            child.remove();
+                        }
+                    })
+                }
+
                 // A reference to the appended element is stored in this object
                 const element = elementFunction(opts.params);
                 this[elementName] = element;
