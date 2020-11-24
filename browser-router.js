@@ -56,6 +56,7 @@
                     link.href = 'javascript:void(null);';
                 });
             };
+            
             // This is the function that handles the actual client side routing
             const _goTo = (route, fromOnPushState, search = window.location.search) => {
                 // The history should only be modified if the call of this function
